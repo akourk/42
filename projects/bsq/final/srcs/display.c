@@ -20,7 +20,7 @@ void	display(int **map)
 	i = 1;
 	if (map == NULL)
 	{
-		write(2, "map ERROR\n", 10);
+		write(2, "map error\n", 10);
 		return ;
 	}
 	while (i <= map[0][4])
