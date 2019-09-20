@@ -1,0 +1,47 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: akourkou <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/07/22 18:49:38 by akourkou          #+#    #+#              #
+#    Updated: 2019/07/22 20:08:59 by akourkou         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = libft.a
+
+SRCS = srcs/ft_putchar.c srcs/ft_putstr.c srcs/ft_strcmp.c srcs/ft_strlen.c srcs/ft_swap.c
+
+OUT = ft_putchar.o ft_putstr.o ft_strcmp.o ft_strlen.o ft_swap.o
+
+INCLUDES = includes/*.h
+
+all: $(NAME)
+
+ft_putchar.o: ft_putchar.c
+	gcc -Wall -Wextra -Werror -c ft_putchar.c
+
+ft_putstr.o: ft_putstr.c
+	gcc -Wall -Wextra -Werror -c ft_putstr.c
+
+ft_strcmp.o: ft_strcmp.c
+	gcc -Wall -Wextra -Werror -c ft_strcmp.c
+
+ft_strlen.o: ft_strlen.c
+	gcc -Wall -Wextra -Werror -c ft_strlen.c
+
+ft_swap.o: ft_swap.c
+	gcc -Wall -Wextra -Werror -c ft_swap.c
+
+libft.a: ft_putchar.o ft_putstr.o ft_strcmp.o ft_strlen.o ft_swap.o
+	ar rc $(NAME) $(OUT)
+
+clean:
+	/bin/rm -f $(OUT)
+
+fclean: clean
+	/bin/rm -f $(NAME)
+
+re: fclean all
